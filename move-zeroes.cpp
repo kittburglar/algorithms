@@ -1,16 +1,12 @@
-class Solution {
-public:
-    void moveZeroes(vector<int>& nums) {
-        int k = 0;
-        for(int i = 0; i < nums.size(); i++){
-            if(nums[i] != 0){
-                nums[k] = nums[i];
-                k++;
-            }
-        }
-        while(k < nums.size()){
-            nums[k] = 0;
-            k++;
+void moveZeroes(vector<int>& nums) {
+    int placementIndex = 0;
+    for (int index = 0; index < nums.size(); index++) {
+        if (nums[index] != 0) {
+            nums[placementIndex++] = nums[index];
         }
     }
-};
+
+    for (int index = placementIndex; index < nums.size(); index++) {
+        nums[index] = 0;
+    }
+}
